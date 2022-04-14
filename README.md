@@ -1,6 +1,6 @@
 # @kunlunjs/mock
 
-基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js](https://www.npmjs.com/package/mock.js)、 [msw](https://www.npmjs.com/package/msw) 的语义化 mock 数据能力
+基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js](https://www.npmjs.com/package/mock.js)、 [msw](https://www.npmjs.com/package/msw) 的语义化、智能化 mock 数据能力
 
 ## Features
 
@@ -11,20 +11,35 @@
 
 ## TODO
 
-- [ ] msw
+- [ ] 使 mock 出来的数据字段间保持含义准确性和一致性，如 country（国家）、province（省份）、district（地区）等
+- [ ] 完全集成 [msw](https://www.npmjs.com/package/msw)，暴露其 mock 接口能力
 - [ ] 更细粒度的字段 mock 配置
 - [ ] 预置更多常用字段
 - [ ] 设置最大嵌套深度
 - [ ] 支持分页
 - [ ] 支持服务端数据推送
+- [ ] 建设中文语义化词库、句库
 
-## Installation
+## Usage
+
+#### Installation
 
 ```bash
-pnpm i
+pnpm i @kunlunjs/mock
 ```
 
-## Example
+```ts
+import { mock } from '@kunlunjs/mock'
+
+type Item = {
+  id: number
+  name: string
+}
+// 第二个参数表示mock数据数量，默认 11
+const data = mock<Item>(['id', 'name'], 2)
+```
+
+#### Example
 
 ```bash
 pnpm examples
@@ -70,4 +85,12 @@ ts-node examples/mock-nested.ts
   }
   //...
 ]
+```
+
+## Local development
+
+```bash
+pnpm i
+# or
+yarn
 ```
