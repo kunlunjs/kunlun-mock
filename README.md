@@ -1,6 +1,6 @@
 # @kunlunjs/mock
 
-基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js][https://www.npmjs.com/package/mock.js]、 [msw](https://www.npmjs.com/package/msw) 的语义化 mock 数据能力
+基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js](https://www.npmjs.com/package/mock.js)、 [msw](https://www.npmjs.com/package/msw) 的语义化 mock 数据能力
 
 ## Installation
 
@@ -16,7 +16,7 @@ pnpm examples
 ts-node examples/mock-nested.ts
 ```
 
-#### result🔽
+#### result 🔽
 
 ```json
 [
@@ -48,10 +48,10 @@ ts-node examples/mock-nested.ts
         "city": "天津市",
         "district": "香山区",
         "date": "1971-02-05"
-      },
+      }
       //...
     ]
-  },
+  }
   //...
-] 80ms
+]
 ```
