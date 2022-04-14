@@ -1,0 +1,12 @@
+*.min.css
+*.min.js
+*.conf
+.yarnrc
+.svgrc
+*.xls
+*.xlsx
+!.commitlintrc.js
+!.prettierrc.js
+!.stylelintrc.json
+
+dist

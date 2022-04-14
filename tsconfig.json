@@ -1,0 +1,19 @@
+{
+  "include": ["src", "examples", "scripts"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "outDir": "dist",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {},
+    "moduleResolution": "node",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true
+  }
+}
