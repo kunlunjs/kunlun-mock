@@ -1,13 +1,24 @@
 import { mock } from '../src/faker'
 
 type Item = {
-  uuid: string
+  id: number
   name: string
+  uuid: string
+  email: string
+  mobile: string
   gender: string
+  birthday: string
+  address: string
   country: string
-  city: string
   province: string
+  region: string
+  city: string
+  district: string
   date: string
+  createdAt: string
+  updatedAt: string
+  deletedAt: string
+  children: Item[]
 }
 const begin = Date.now()
 const data = mock<Item>(
@@ -15,6 +26,8 @@ const data = mock<Item>(
     'id',
     'name',
     'uuid',
+    'email',
+    'mobile',
     'gender',
     'birthday',
     'address',

@@ -2,6 +2,22 @@
 
 基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js](https://www.npmjs.com/package/mock.js)、 [msw](https://www.npmjs.com/package/msw) 的语义化 mock 数据能力
 
+## Features
+
+- 支持任何 [Mock.js](https://www.npmjs.com/package/mock.js) API <b>优先级高于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) 同名 API</b>
+- 支持任何 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) API
+- 中文 Mock 能力
+- 语义化字段理解，example: name - 姓名、createdAt - 创建时间
+
+## TODO
+
+- [ ] msw
+- [ ] 更细粒度的字段 mock 配置
+- [ ] 预置更多常用字段
+- [ ] 设置最大嵌套深度
+- [ ] 支持分页
+- [ ] 支持服务端数据推送
+
 ## Installation
 
 ```bash
