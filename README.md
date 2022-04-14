@@ -4,7 +4,7 @@
 
 ## Features
 
-- 支持任何 [Mock.js](https://www.npmjs.com/package/mock.js) API <b>优先级高于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) 同名 API</b>
+- 支持任何 [Mock.js](https://www.npmjs.com/package/mock.js) API， <b>优先级高于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) 同名 API</b>
 - 支持任何 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) API
 - 中文 Mock 能力
 - 语义化字段理解，example: name - 姓名、createdAt - 创建时间

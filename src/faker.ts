@@ -46,8 +46,10 @@ const customs = [
   'id',
   'name',
   'age',
+  'email',
   'mobile',
   'visits',
+  'gender',
   'birthday',
   'progress',
   'year',
@@ -83,6 +85,8 @@ function getCustomFaker(key: CustomNames) {
     mobile: Mock.mock(/^1[3456789]\d{9}$/),
     visits: Random.integer(),
     age: Random.integer(1, 100),
+    email: Random.email(),
+    gender: Mock.mock(/男|女/),
     birthday: faker.date
       .between('1902-01-01T00:00:00.000Z', new Date().toISOString())
       .toISOString()
