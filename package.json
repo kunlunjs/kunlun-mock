@@ -11,7 +11,7 @@
     "lint:script": "eslint . --ext '.ts,.tsx' --color",
     "lint:script:fix": "npm run lint:script -- --fix",
     "build": "tsc -p tsconfig.build.json",
-    "examples": "ts-node examples/mock-object-array.ts",
+    "examples": "ts-node examples/mock-nested.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prerelease": "npm run build",
     "release": "release-it"

@@ -1,6 +1,6 @@
 # @kunlunjs/mock
 
-基于 @faker-js/faker 和 msw 的语义化 mock 数据能力
+基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js][https://www.npmjs.com/package/mock.js]、 [msw](https://www.npmjs.com/package/msw) 的语义化 mock 数据能力
 
 ## Installation
 
@@ -13,10 +13,10 @@ pnpm i
 ```bash
 pnpm examples
 # or
-ts-node examples/mock-object-array.ts
+ts-node examples/mock-nested.ts
 ```
 
-#### Result
+#### result🔽
 
 ```json
 [
