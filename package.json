@@ -4,6 +4,9 @@
   "description": "基于 @faker-js/faker 和 msw 的语义化 mock 数据能力",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepare": "husky install",
     "lint": "npm run lint:script",
