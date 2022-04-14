@@ -12,9 +12,11 @@
     "lint:script:fix": "npm run lint:script -- --fix",
     "build": "tsc -p tsconfig.build.json",
     "examples": "ts-node examples/mock-object-array.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prerelease": "npm run build",
+    "release": "release-it"
   },
-  "files": ["src", "dist"],
+  "files": ["src", "dist", "examples"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/turing-fe/kunlun-mock.git"
