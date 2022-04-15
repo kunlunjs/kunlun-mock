@@ -1,18 +1,18 @@
 # @kunlunjs/mock
 
-基于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker)、[Mock.js](https://www.npmjs.com/package/mock.js)、 [msw](https://www.npmjs.com/package/msw) 的语义化、智能化 mock 数据能力
+基于 [@faker-js/faker](https://fakerjs.dev/)、[Mock.js](http://mockjs.com/)、 [msw](https://mswjs.io/) 的语义化、智能化 mock 数据能力
 
 ## Features
 
-- 支持任何 [Mock.js](https://www.npmjs.com/package/mock.js) API， <b>优先级高于 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) 同名 API</b>
-- 支持任何 [@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) API
+- 支持任何 [Mock.js](http://mockjs.com/) API， <b>优先级高于 [@faker-js/faker](https://fakerjs.dev/) 同名 API</b>
+- 支持任何 [@faker-js/faker](https://fakerjs.dev/) API
 - 中文 Mock 能力
 - 语义化字段理解，example: name - 姓名、createdAt - 创建时间
 
 ## TODO
 
 - [ ] 使 mock 出来的数据字段间保持含义准确性和一致性，如 country（国家）、province（省份）、district（地区）等
-- [ ] 完全集成 [msw](https://www.npmjs.com/package/msw)，暴露其 mock 接口能力
+- [ ] 完全集成 [msw](https://mswjs.io/)，暴露其 mock 接口能力
 - [ ] 更细粒度的字段 mock 配置
 - [ ] 预置更多常用字段
 - [ ] 设置最大嵌套深度
