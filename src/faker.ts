@@ -1,9 +1,12 @@
 import faker from '@faker-js/faker/locale/zh_CN'
 import Mock, { Random } from 'mockjs'
+import { countries } from './dictionary'
 
 export { faker }
+export { Mock, Random }
 
 const apis: Record<string, string> = {}
+const apiss: string[] = []
 /* address */
 /* animal */
 /* commerce */
@@ -36,6 +39,7 @@ Object.entries(faker).forEach(([category, api]) => {
     keys.forEach(i => {
       if (i !== 'faker' && category !== 'definitions') {
         apis[i] = category
+        apiss.push(`${category}.${i}`)
       }
     })
   }
@@ -123,12 +127,19 @@ type FieldItem = typeof Fields[number]
 
 // TODO: 嵌套数据，嵌套深度...
 export const mock = <T extends Record<string, any>>(
-  fields: Array<FieldItem> = [],
+  fields: Array<
+    | FieldItem
+    | {
+        name: string
+        api: string //keyof typeof apiss[number]
+        props?: Record<string, any>
+      }
+  > = [],
   len = 11
 ): T[] => {
-  const directFields = fields.filter(
-    i =>
-      ![
+  const directFields = fields.filter(i => {
+    if (typeof i === 'string') {
+      return ![
         'id',
         'uuid',
         'createdAt',
@@ -136,29 +147,68 @@ export const mock = <T extends Record<string, any>>(
         'deletedAt',
         'children'
       ].includes(i)
-  )
+    }
+    if (typeof i === 'object') {
+      return ![
+        'id',
+        'uuid',
+        'createdAt',
+        'updatedAt',
+        'deletedAt',
+        'children'
+      ].includes(i.name)
+    }
+  })
+
   const data = [...Array(len)].map((i, ix) => {
     const obj: Partial<Record<FieldItem, any>> = {}
     for (let index = 0; index < fields.length; index++) {
       const field = fields[index]
-      if (field === 'children') {
-        obj[field] = mock(directFields, Random.integer(1, 20))
-        continue
-      }
-      if (customs.includes(field as CustomNames)) {
-        obj[field] = getCustomFaker(field as CustomNames)
-        if (field === 'id') {
-          obj[field] = ix + 1
-        }
-        continue
-      }
-      if (apis[field]) {
-        const category = apis[field] as keyof typeof faker
+      if (typeof field === 'object' && typeof field.api === 'string') {
+        const [c, n] = field.api.split('.')
         // @ts-ignore
-        obj[field] = faker[category][field]()
+        obj[field] = field.props ? faker[c][n](field.props) : faker[c][n]()
         continue
-      } else {
-        obj[field] = null
+      }
+      if (typeof field === 'string') {
+        if (field === 'children') {
+          obj[field] = mock(directFields, Random.integer(1, 20))
+          continue
+        }
+        if (field === 'country') {
+          obj[field] = '中国'
+        }
+        if (field === 'province') {
+          const provinces = Object.keys(countries['中国'].provinces)
+          obj[field] = provinces[Math.floor(Math.random() * provinces.length)]
+        }
+        if (
+          field === 'city' &&
+          obj['province'] &&
+          // @ts-ignore
+          countries['中国'].provinces[obj['province']]
+        ) {
+          const citys = Object.keys(
+            // @ts-ignore
+            countries['中国'].provinces[obj['province']]
+          )
+          obj[field] = citys[Math.floor(Math.random() * citys.length)]
+        }
+        if (customs.includes(field as CustomNames)) {
+          obj[field] = getCustomFaker(field as CustomNames)
+          if (field === 'id') {
+            obj[field] = ix + 1
+          }
+          continue
+        }
+        if (apis[field]) {
+          const category = apis[field] as keyof typeof faker
+          // @ts-ignore
+          obj[field] = faker[category][field]()
+          continue
+        } else {
+          obj[field] = null
+        }
       }
     }
     return obj

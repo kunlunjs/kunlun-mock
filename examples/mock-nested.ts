@@ -40,6 +40,10 @@ const data = mock<Item>(
     'createdAt',
     'updatedAt',
     'deletedAt',
+    {
+      name: 'x',
+      api: 'datatype.float'
+    },
     'children'
   ],
   // optional default 11

@@ -1,7 +1,7 @@
 {
   "name": "@kunlunjs/mock",
   "version": "0.0.4",
-  "description": "基于 @faker-js/faker 和 msw 的语义化 mock 数据能力",
+  "description": "基于 @faker-js/faker、Mock.js 和 msw 的语义化、智能化 mock 数据工具",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
